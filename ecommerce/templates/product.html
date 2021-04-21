@@ -1,0 +1,34 @@
+{% include 'header.html' %}
+{% block content %}
+<style>
+.svgbg{
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1033%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(153%2c 153%2c 0%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c532.922C108.242%2c523.249%2c221.224%2c544.633%2c316.93%2c493.153C416.144%2c439.786%2c484.871%2c345.177%2c535.825%2c244.703C588.324%2c141.181%2c634.166%2c25.924%2c611.62%2c-87.938C589.45%2c-199.898%2c487.284%2c-271.33%2c415.993%2c-360.46C341.31%2c-453.831%2c293.605%2c-577.947%2c183.123%2c-623.659C69.461%2c-670.687%2c-64.913%2c-654.61%2c-178.004%2c-606.225C-285.16%2c-560.38%2c-343.205%2c-451.577%2c-421.305%2c-365.063C-501.288%2c-276.463%2c-628.105%2c-210.855%2c-641.948%2c-92.298C-655.786%2c26.213%2c-538.448%2c114.739%2c-490.062%2c223.804C-440.965%2c334.47%2c-457.951%2c488.658%2c-355.552%2c553.249C-253.071%2c617.891%2c-120.684%2c543.707%2c0%2c532.922' fill='%23636400'%3e%3c/path%3e%3cpath d='M1440 1110.661C1544.121 1108.685 1649.283 1076.67 1728.91 1009.553 1804.186 946.1030000000001 1832.811 846.98 1863.722 753.508 1891.71 668.875 1907.135 582.751 1899.42 493.945 1891.349 401.04200000000003 1876.338 305.183 1818.423 232.094 1759.347 157.54000000000002 1665.988 125.79199999999997 1578.364 88.774 1480.024 47.22900000000004 1382.58-8.784999999999968 1276.494 3.1499999999999773 1161.973 16.033999999999992 1044.313 64.95999999999998 974.5699999999999 156.70299999999997 905.932 246.99200000000002 914.265 370.572 910.997 483.94100000000003 908.053 586.071 915.901 687.046 956.582 780.77 997.816 875.768 1058.415 962.278 1143.9560000000001 1020.653 1230.912 1079.993 1334.745 1112.658 1440 1110.661' fill='%23cfcf00'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1033'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+}
+</style>
+
+<header id="home" class="bg-pink-400 h-72 svgbg flex flex-col justify-center items-center">
+  <nav style="position: fixed; top: 0; z-index: 10000;" class="text-white font-bold text-2xl p-4 flex justify-between w-full svgbg h-16 shadow-lg">
+    <a class="mx-4" href="/#home">Potatify</a>
+    <div class="mx-4">
+      <a class="mx-2" href="/#aboutus">About Us</a>
+      <a class="mx-2" href="/#mission">Mission</a>
+      <a class="mx-2" href="/#products">Contribute</a>
+    </div>
+  </nav>
+  <h1 class="font-bold text-white text-6xl p-2">Potatify</h1>
+  <p class="font-semibold text-yellow-300">You're viewing: <span class="font-bold">{{product.title}}</span></p>
+</header>
+<div id="{{product.title}}" class="font-bold text-center m-4 p-4 h-auto">
+  <h3 class="font-bold text-4xl p-4">{{product.title}}</h3>
+  <p class="font-semibold p-4 mx-4">{{product.description}}</p>
+</div>
+<div class="flex flex-col justify-center items-center h-40 m-4">
+  <h3 class="font-bold text-4xl"><i class="fab fa-github text-4xl mx-2 hover:text-gray-500 "></i> Kobi, 2021</h3>
+</div>
+<script>
+const redirect = title => {
+  window.location.href = `/${title}`
+}
+</script>
+
+{% endblock %}

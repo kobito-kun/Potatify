@@ -10,3 +10,10 @@ def mainPage(request):
     'products': products
   }
   return render(request, 'index.html', context)
+
+def individualPage(request, title):
+  product = Product.objects.get(title=title)
+  context = {
+    'product': product
+  }
+  return render(request, 'product.html', context)
