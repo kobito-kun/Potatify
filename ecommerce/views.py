@@ -17,3 +17,10 @@ def individualPage(request, title):
     'product': product
   }
   return render(request, 'product.html', context)
+
+def payPage(request, id):
+  product = Product.objects.get(id=id)
+  context = {
+    'product': product
+  }
+  return render(request, 'pay.html', context)
