@@ -5,22 +5,21 @@ from .decorators import unauthenticated_user
 from .models import *
 
 def mainPage(request):
-  products = Product.objects.all()
-  context = {
-    'products': products
-  }
+  context = {}
   return render(request, 'index.html', context)
 
-def individualPage(request, title):
-  product = Product.objects.get(title=title)
-  context = {
-    'product': product
-  }
-  return render(request, 'product.html', context)
+def payPage(request, amount, user):
+  created_order = Order.objects.create(
+    total = amount,  
+    name = user,
+  )
+  return redirect(f"/pay/{created_order.id}")
 
-def payPage(request, id):
-  product = Product.objects.get(id=id)
+def payPage2(request, order_id):
+  disabled = True
+  order = Order.objects.get(id=order_id)
   context = {
-    'product': product
+    'order': order,
+    'disabled': True,
   }
   return render(request, 'pay.html', context)

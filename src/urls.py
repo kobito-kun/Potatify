@@ -7,6 +7,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mainPage, name="main"),
-    path('<str:title>', individualPage, name="product"),
-    path('pay/<int:id>', payPage, name="payPage")
+    path('pay/<int:amount>/<str:user>', payPage, name="payPage"),
+    path('pay/<str:order_id>', payPage2, name="payPage2")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
